@@ -14,7 +14,7 @@ export default {
       colors: {
         bg: "#050505",
         surface: "#0D0D0D",
-        surface2: "#121212",
+        surface2: "#2e2e2e",
         primary: "#F47B0B",
         primaryDark: "#C95F05",
         secondary: "#0878B9",

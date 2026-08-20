@@ -44,14 +44,14 @@ export default function FacilitiesSection() {
           <span className="font-rajdhani font-bold uppercase tracking-[0.15em] text-xs sm:text-sm text-muted">
             Equipment Partners
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
             {equipmentPartners.map((p) => (
-              <span
-                key={p}
-                className="font-teko text-2xl sm:text-3xl font-bold uppercase text-heading/80 tracking-wide"
-              >
-                {p}
-              </span>
+              <img
+                key={p.name}
+                src={p.logo}
+                alt={p.name}
+                className="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+              />
             ))}
           </div>
         </div>

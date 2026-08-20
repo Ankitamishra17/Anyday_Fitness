@@ -211,7 +211,7 @@ export default function Contact() {
               {/* Map */}
               <iframe
                 className="absolute inset-0 h-full w-full border-0"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVizdQeh3udy11xDc5Ao2YStR2gLc-rfc&q=Anyday%20Fitness%2C%206th%20Floor%2C%20Zeal%2031%2C%20Plot%2031%2C%20Greater%20Noida%20W%20Rd%2C%20Tech%20Zone%20IV%2C%20West%2C%20Amrapali%20Dream%20Valley%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201306&maptype=roadmap&zoom=13"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVizdQeh3udy11xDc5Ao2YStR2gLc-rfc&q=Anyday+Fitness%2C+6th+Floor%2C+Zeal+31%2C+Plot+31%2C+Greater+Noida+W+Rd%2C+Tech+Zone+IV%2C+Greater+Noida%2C+Uttar+Pradesh+201306&maptype=roadmap&zoom=15"
                 title="Anyday Fitness Location"
                 allowFullScreen
                 loading="lazy"

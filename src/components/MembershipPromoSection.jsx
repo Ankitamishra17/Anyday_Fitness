@@ -5,7 +5,7 @@ import Button from "./Button";
 
 export default function MembershipPromoSection() {
   return (
-    <section className="relative py-20 sm:py-28 bg-surface2">
+    <section id="membership" className="relative py-20 sm:py-28 bg-surface2">
       <div className="container-x flex flex-col items-center">
         <SectionHeading
           eyebrow="Membership"
@@ -21,7 +21,7 @@ export default function MembershipPromoSection() {
           ))}
 
           {/* Promo panel */}
-          <div className="relative rounded-xl overflow-hidden border border-white/10 min-h-[280px] group sm:col-span-2 lg:col-span-1">
+          {/* <div className="relative rounded-xl overflow-hidden border border-white/10 min-h-[280px] group sm:col-span-2 lg:col-span-1">
             <img
               src="image/image15.webp"
               alt="Luxury modern gym interior"
@@ -43,7 +43,7 @@ export default function MembershipPromoSection() {
                 Take A Tour
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

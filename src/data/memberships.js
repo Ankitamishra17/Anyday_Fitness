@@ -1,35 +1,38 @@
 export const memberships = [
   {
-    id: "basic",
-    name: "Basic",
-    price: "₹999",
+    id: "monthly",
+    name: "Monthly",
+    price: "₹6,000",
     period: "/ month",
     popular: false,
-    features: ["Gym Access", "Basic Equipment", "1 Trainer Session / Month"],
+    features: ["Gym Access", "All Equipment", "1 Trainer Session / Month"],
   },
   {
-    id: "premium",
-    name: "Premium",
-    price: "₹1499",
-    period: "/ month",
+    id: "3-months",
+    name: "3 Months",
+    price: "₹16,000",
+    period: "/ 3 months",
+    popular: false,
+    features: ["Gym Access", "All Equipment", "4 Trainer Sessions Total"],
+  },
+  {
+    id: "6-months",
+    name: "6 Months",
+    price: "₹19,000",
+    period: "/ 6 months",
+    popular: false,
+    features: ["Gym Access", "All Equipment", "Nutrition Guide"],
+  },
+  {
+    id: "12-months",
+    name: "Annual",
+    price: "₹26,000",
+    period: "/ 12 months",
     popular: true,
     features: [
       "Gym Access",
       "All Equipment",
-      "4 Trainer Sessions / Month",
-      "Nutrition Guide",
-    ],
-  },
-  {
-    id: "ultimate",
-    name: "Ultimate",
-    price: "₹1999",
-    period: "/ month",
-    popular: false,
-    features: [
-      "Gym Access",
-      "All Equipment",
-      "Unlimited Trainer Sessions",
+      "2 Complimentary Personal Training Sessions",
       "Nutrition Guide",
       "Priority Support",
     ],
@@ -37,24 +40,65 @@ export const memberships = [
 ];
 
 export const comparisonFeatures = [
-  { feature: "Gym Access", basic: true, premium: true, ultimate: true },
-  { feature: "Basic Equipment", basic: true, premium: true, ultimate: true },
-  { feature: "All Equipment", basic: false, premium: true, ultimate: true },
-  { feature: "Trainer Sessions", basic: "1 / month", premium: "4 / month", ultimate: "Unlimited" },
-  { feature: "Nutrition Guide", basic: false, premium: true, ultimate: true },
-  { feature: "Priority Support", basic: false, premium: false, ultimate: true },
-  { feature: "24/7 Access", basic: true, premium: true, ultimate: true },
-  { feature: "Locker Room", basic: true, premium: true, ultimate: true },
+  {
+    feature: "Gym Access",
+    monthly: true,
+    "3-months": true,
+    "6-months": true,
+    "12-months": true,
+  },
+  {
+    feature: "All Equipment",
+    monthly: true,
+    "3-months": true,
+    "6-months": true,
+    "12-months": true,
+  },
+  {
+    feature: "Nutrition Guide",
+    monthly: false,
+    "3-months": false,
+    "6-months": true,
+    "12-months": true,
+  },
+  {
+    feature: "Priority Support",
+    monthly: false,
+    "3-months": false,
+    "6-months": false,
+    "12-months": true,
+  },
+  {
+    feature: "Complimentary PT Sessions",
+    monthly: false,
+    "3-months": false,
+    "6-months": false,
+    "12-months": "2 Sessions",
+  },
+  {
+    feature: "24/7 Access",
+    monthly: true,
+    "3-months": true,
+    "6-months": true,
+    "12-months": true,
+  },
+  {
+    feature: "Locker Room",
+    monthly: true,
+    "3-months": true,
+    "6-months": true,
+    "12-months": true,
+  },
 ];
 
 export const membershipFaqs = [
   {
     q: "Can I upgrade my plan later?",
-    a: "Yes, you can upgrade from Basic to Premium or Ultimate at any time from your account dashboard or at the front desk.",
+    a: "Yes, you can upgrade to a longer-term plan at any time from your account dashboard or at the front desk.",
   },
   {
     q: "Is there a joining fee?",
-    a: "No hidden joining fees. The price you see is the price you pay every month.",
+    a: "No hidden joining fees. The price you see is the price you pay.",
   },
   {
     q: "Can I freeze my membership?",
@@ -62,11 +106,11 @@ export const membershipFaqs = [
   },
   {
     q: "Is personal training included?",
-    a: "Trainer sessions are included based on your plan. Additional sessions can be purchased separately.",
+    a: "The Annual plan includes 2 complimentary personal training sessions. Additional sessions can be purchased separately on any plan.",
   },
   {
     q: "Can I cancel my membership anytime?",
-    a: "Yes, all plans are month-to-month with no long-term lock-in. You can cancel anytime from your account dashboard with no cancellation fees.",
+    a: "Monthly plans can be cancelled anytime with no cancellation fees. Multi-month plans run for their full term.",
   },
   {
     q: "Do you offer a free trial?",
@@ -74,11 +118,10 @@ export const membershipFaqs = [
   },
   {
     q: "What happens if I miss my trainer sessions?",
-    a: "Unused trainer sessions do not roll over to the next month, so we recommend scheduling them in advance through the app or front desk.",
+    a: "Unused trainer sessions do not roll over, so we recommend scheduling them in advance through the app or front desk.",
   },
   {
-    q: "Is there a discount for annual payment?",
-    a: "Yes, paying annually gets you two months free compared to the monthly rate. Ask our front desk team for current annual pricing.",
+    q: "Is there a discount for longer plans?",
+    a: "Yes — the 3, 6, and 12 month plans work out cheaper per month than paying monthly, with the Annual plan offering the best value plus 2 free PT sessions.",
   },
-
 ];

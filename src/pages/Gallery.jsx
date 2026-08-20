@@ -4,36 +4,88 @@ import GalleryCard from "../components/GalleryCard";
 import Lightbox from "../components/Lightbox";
 import { galleryImages, galleryCategories } from "../data/gallery";
 
+// function CategoryTabs({ categories, active, setActive }) {
+//   const containerRef = useRef(null);
+//   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
+
+//   useEffect(() => {
+//     const idx = categories.indexOf(active);
+//     const btn = containerRef.current?.children[idx + 1];
+//     if (btn) setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
+//   }, [active, categories]);
+
+//   return (
+//     <div
+//       ref={containerRef}
+//       className="relative inline-flex flex-wrap items-center justify-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mx-auto max-w-full"
+//     >
+//       <span
+//         className="absolute top-1.5 bottom-1.5 rounded-full bg-primary transition-all duration-300 ease-out"
+//         style={{ left: indicator.left, width: indicator.width }}
+//       />
+//       {categories.map((cat) => (
+//         <button
+//           key={cat}
+//           onClick={() => setActive(cat)}
+//           className={`relative z-10 font-rajdhani font-bold uppercase tracking-wide text-xs sm:text-sm px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full transition-colors duration-300 whitespace-nowrap ${
+//             active === cat ? "text-black" : "text-body hover:text-heading"
+//           }`}
+//         >
+//           {cat}
+//         </button>
+//       ))}
+//     </div>
+//   );
+// }
+
 function CategoryTabs({ categories, active, setActive }) {
   const containerRef = useRef(null);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
 
   useEffect(() => {
     const idx = categories.indexOf(active);
-    const btn = containerRef.current?.children[idx + 1];
-    if (btn) setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
+    const btn = containerRef.current?.querySelector(
+      `[data-category="${active}"]`
+    );
+
+    if (btn) {
+      setIndicator({
+        left: btn.offsetLeft,
+        width: btn.offsetWidth,
+      });
+    }
   }, [active, categories]);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative inline-flex flex-wrap items-center justify-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mx-auto max-w-full"
-    >
-      <span
-        className="absolute top-1.5 bottom-1.5 rounded-full bg-primary transition-all duration-300 ease-out"
-        style={{ left: indicator.left, width: indicator.width }}
-      />
-      {categories.map((cat) => (
-        <button
-          key={cat}
-          onClick={() => setActive(cat)}
-          className={`relative z-10 font-rajdhani font-bold uppercase tracking-wide text-xs sm:text-sm px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full transition-colors duration-300 whitespace-nowrap ${
-            active === cat ? "text-black" : "text-body hover:text-heading"
-          }`}
-        >
-          {cat}
-        </button>
-      ))}
+    <div className="w-full max-w-full overflow-x-auto scrollbar-hide px-1">
+      <div
+        ref={containerRef}
+        className="relative flex w-max min-w-full items-center justify-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mx-auto"
+      >
+        {/* Active Indicator */}
+        <span
+          className="absolute top-1.5 bottom-1.5 rounded-full bg-primary transition-all duration-300 ease-out"
+          style={{
+            left: indicator.left,
+            width: indicator.width,
+          }}
+        />
+
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            data-category={cat}
+            onClick={() => setActive(cat)}
+            className={`relative z-10 shrink-0 font-rajdhani font-bold uppercase tracking-wide text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-colors duration-300 whitespace-nowrap ${
+              active === cat
+                ? "text-black"
+                : "text-body hover:text-heading"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

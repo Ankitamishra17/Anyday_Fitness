@@ -66,7 +66,7 @@ export const programs = [
     longDescription:
       "Community-driven WODs blending gymnastics, weightlifting and conditioning for elite, all-round fitness.",
     image:
-      "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?q=80&w=1200&auto=format&fit=crop",
+      "/image/image27.webp",
     duration: "60 min",
     difficulty: "Advanced",
     trainer: "Rahul Verma",
@@ -79,7 +79,7 @@ export const programs = [
     longDescription:
       "Explosive interval circuits engineered to spike your metabolism and torch calories long after the session ends.",
     image:
-      "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
+      "/image/image30.webp",
     duration: "30 min",
     difficulty: "Intermediate",
     trainer: "Meera Kapoor",
@@ -104,7 +104,7 @@ export const programs = [
     longDescription:
       "Guided mobility flows and breathwork to improve recovery, flexibility and long-term joint health.",
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop",
+      "/image/image32.webp",
     duration: "45 min",
     difficulty: "Beginner",
     trainer: "Meera Kapoor",

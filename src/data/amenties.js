@@ -76,4 +76,8 @@ export const amenities = [
   },
 ];
 
-export const equipmentPartners = ["Matrix", "Thor", "cult.fit"];
+export const equipmentPartners = [
+  { name: "Matrix", logo: "/image/matrix-logo.png" },
+  { name: "Thor", logo: "/image/thor-logo.png" },
+  { name: "cult.fit", logo: "/image/cultfit-logo.png" },
+];

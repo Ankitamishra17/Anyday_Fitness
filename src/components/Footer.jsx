@@ -20,20 +20,42 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <Logo />
           <p className="font-inter text-sm text-muted max-w-xs">
-            Experience Luxury Fitness - Anyday. Anytime. Premium equipment, expert
-            trainers, personalized programs.
+            Experience Luxury Fitness - Anyday. Anytime. Premium equipment,
+            expert trainers, personalized programs.
           </p>
           <div className="flex items-center gap-3 mt-1">
-            {[FacebookIcon, InstagramIcon, YoutubeIcon].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="social link"
-                className="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 text-body hover:border-primary hover:text-primary transition-colors duration-300"
-              >
-                <Icon size={16} />
-              </a>
-            ))}
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/AnydayFitnessGreaterNoidaWest/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Facebook page"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 text-body hover:border-primary hover:text-primary transition-colors duration-300"
+            >
+              <FacebookIcon size={16} />
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/anydayfitness_greaternoidawest?igsh=OHphZ3gxd2Z5bnBq&igsi=OHphZ3gxd2Z5bnBq"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Instagram page"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 text-body hover:border-primary hover:text-primary transition-colors duration-300"
+            >
+              <InstagramIcon size={16} />
+            </a>
+
+            {/* YouTube */}
+            <a
+              href="YOUR_YOUTUBE_CHANNEL_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our YouTube channel"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 text-body hover:border-primary hover:text-primary transition-colors duration-300"
+            >
+              <YoutubeIcon size={16} />
+            </a>
           </div>
         </div>
 
@@ -62,15 +84,16 @@ export default function Footer() {
           <ul className="flex flex-col gap-3 text-sm text-muted font-inter">
             <li className="flex items-start gap-2.5">
               <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
-           6th Floor, Zeal 31, Plot 31, Greater Noida W Rd, Tech Zone IV, West, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201306
+              6th Floor, Zeal 31, Plot 31, Greater Noida W Rd, Tech Zone IV,
+              West, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201306
             </li>
             <li className="flex items-center gap-2.5">
               <Phone size={16} className="text-primary shrink-0" />
-            070424 50015
+              +91 9217688279
             </li>
             <li className="flex items-center gap-2.5">
               <Mail size={16} className="text-primary shrink-0" />
-        info@anydayfitness.in
+              info@anydayfitness.in
             </li>
           </ul>
         </div>
@@ -79,9 +102,8 @@ export default function Footer() {
           <h4 className="font-rajdhani font-bold text-heading uppercase tracking-wide mb-4">
             Opening Hours
           </h4>
-          <p className="font-inter text-sm text-muted">Mon - Sat</p>
           <p className="font-teko text-3xl font-semibold text-primary leading-none mt-1">
-            6:00 AM - 10:00 PM
+            24 Hours Open
           </p>
         </div>
       </div>
@@ -89,7 +111,8 @@ export default function Footer() {
       <div className="relative flex flex-col sm:flex-row items-stretch overflow-hidden border-t border-white/10">
         <div className="flex-1 px-5 sm:px-12 py-4 flex items-center justify-center sm:justify-start">
           <p className="font-inter text-xs text-muted">
-            &copy; {new Date().getFullYear()} Anyday Fitness. All rights reserved.
+            &copy; {new Date().getFullYear()} Anyday Fitness. All rights
+            reserved.
           </p>
         </div>
         <div className="relative bg-primary px-8 sm:px-16 py-4 flex items-center justify-center sm:justify-end clip-diagonal">
