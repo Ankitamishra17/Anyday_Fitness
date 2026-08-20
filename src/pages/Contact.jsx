@@ -7,7 +7,8 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "6th Floor, Zeal 31, Plot 31, Greater Noida W Rd, Tech Zone IV, West, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201306",
+    value:
+      "6th Floor, Zeal 31, Plot 31, Greater Noida W Rd, Tech Zone IV, West, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201306",
   },
   { icon: Phone, label: "Phone", value: "070424 50015" },
   { icon: Mail, label: "Email", value: "info@anydayfitness.in" },
@@ -106,37 +107,92 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e) =>
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  const handleSubmit = (e) => {
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-    setTimeout(() => setSubmitted(false), 4000);
+
+    setIsSubmitting(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch(
+        "https://anydayfitnessclub.com/send-contact.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            phone: form.phone,
+            email: form.email,
+            subject: form.subject,
+            message: form.message,
+          }),
+        },
+      );
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSuccessMessage("Your message has been sent successfully!");
+
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setErrorMessage(
+          data.message || "Something went wrong. Please try again.",
+        );
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setErrorMessage("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
-     <PageHero
-  image="/contactbanner1.png"
-  eyebrow="Get In Touch"
-  title="Contact "
-  highlight="us"
-  description="Have a question, need more information, or ready to bring your ideas to life? Get in touch with our team today. We’re here to listen, help, and find the right solution for you."
-  primaryBtnText="Contact Us"
-  primaryBtnLink="/contact"
-  secondaryBtnText="Learn More"
-  secondaryBtnLink="/about"
-/>
+      <PageHero
+        image="/contactbanner1.png"
+        eyebrow="Get In Touch"
+        title="Contact "
+        highlight="us"
+        description="Have a question, need more information, or ready to bring your ideas to life? Get in touch with our team today. We’re here to listen, help, and find the right solution for you."
+        primaryBtnText="Contact Us"
+        primaryBtnLink="/contact"
+        secondaryBtnText="Learn More"
+        secondaryBtnLink="/about"
+      />
 
       <section className="py-16 sm:py-24 bg-surface">
         <div className="container-x grid lg:grid-cols-[1fr_1.2fr] gap-12">
           {/* Info */}
           <div className="flex flex-col gap-5">
             {contactInfo.map((info) => (
-              <div key={info.label} className="card-dark flex items-start gap-4 p-6">
+              <div
+                key={info.label}
+                className="card-dark flex items-start gap-4 p-6"
+              >
                 <div className="w-11 h-11 shrink-0 flex items-center justify-center rounded-full bg-primary/15 border border-primary/50 text-primary">
                   <info.icon size={20} strokeWidth={1.75} />
                 </div>
@@ -144,49 +200,57 @@ export default function Contact() {
                   <h3 className="font-rajdhani font-bold text-heading uppercase tracking-wide text-sm">
                     {info.label}
                   </h3>
-                  <p className="font-inter text-sm text-body mt-1">{info.value}</p>
+                  <p className="font-inter text-sm text-body mt-1">
+                    {info.value}
+                  </p>
                 </div>
               </div>
             ))}
 
-           <div className="relative mt-2 h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-surface shadow-lg">
-  {/* Map */}
-  <iframe
-    className="absolute inset-0 h-full w-full border-0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVizdQeh3udy11xDc5Ao2YStR2gLc-rfc&q=Anyday%20Fitness%2C%206th%20Floor%2C%20Zeal%2031%2C%20Plot%2031%2C%20Greater%20Noida%20W%20Rd%2C%20Tech%20Zone%20IV%2C%20West%2C%20Amrapali%20Dream%20Valley%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201306&maptype=roadmap&zoom=13"
-    title="Anyday Fitness Location"
-    allowFullScreen
-    loading="lazy"
-  />
+            <div className="relative mt-2 h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-surface shadow-lg">
+              {/* Map */}
+              <iframe
+                className="absolute inset-0 h-full w-full border-0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVizdQeh3udy11xDc5Ao2YStR2gLc-rfc&q=Anyday%20Fitness%2C%206th%20Floor%2C%20Zeal%2031%2C%20Plot%2031%2C%20Greater%20Noida%20W%20Rd%2C%20Tech%20Zone%20IV%2C%20West%2C%20Amrapali%20Dream%20Valley%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201306&maptype=roadmap&zoom=13"
+                title="Anyday Fitness Location"
+                allowFullScreen
+                loading="lazy"
+              />
 
-  {/* Subtle overlay */}
-  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
+              {/* Subtle overlay */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
 
-  {/* Location label */}
-  <div className="absolute bottom-3 left-3 right-3 flex items-center gap-3 rounded-lg border border-white/10 bg-black/60 px-4 py-3 text-white backdrop-blur-md">
-    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/15">
-      <MapPin size={20} className="text-primary" />
-    </div>
+              {/* Location label */}
+              <div className="absolute bottom-3 left-3 right-3 flex items-center gap-3 rounded-lg border border-white/10 bg-black/60 px-4 py-3 text-white backdrop-blur-md">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/15">
+                  <MapPin size={20} className="text-primary" />
+                </div>
 
-    <div className="min-w-0">
-      <p className="text-sm font-semibold">Anyday Fitness</p>
-      <p className="truncate text-xs text-white/60">
-        Zeal 31, Tech Zone IV, Greater Noida
-      </p>
-    </div>
-  </div>
-</div>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold">Anyday Fitness</p>
+                  <p className="truncate text-xs text-white/60">
+                    Zeal 31, Tech Zone IV, Greater Noida
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="card-dark p-8 flex flex-col gap-5">
+          <form
+            onSubmit={handleSubmit}
+            className="card-dark p-8 flex flex-col gap-5"
+          >
             <h2 className="font-teko text-3xl font-semibold text-heading uppercase">
               Send Us A Message
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted">
+                <label
+                  htmlFor="name"
+                  className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted"
+                >
                   Name
                 </label>
                 <input
@@ -201,7 +265,10 @@ export default function Contact() {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted">
+                <label
+                  htmlFor="email"
+                  className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted"
+                >
                   Email
                 </label>
                 <input
@@ -219,7 +286,10 @@ export default function Contact() {
 
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
-                <label htmlFor="phone" className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted">
+                <label
+                  htmlFor="phone"
+                  className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted"
+                >
                   Phone
                 </label>
                 <input
@@ -233,7 +303,10 @@ export default function Contact() {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted">
+                <label
+                  htmlFor="subject"
+                  className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted"
+                >
                   Subject
                 </label>
                 <input
@@ -249,7 +322,10 @@ export default function Contact() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted">
+              <label
+                htmlFor="message"
+                className="font-rajdhani text-xs font-semibold uppercase tracking-wide text-muted"
+              >
                 Message
               </label>
               <textarea
@@ -266,12 +342,27 @@ export default function Contact() {
 
             <button type="submit" className="btn-primary justify-center group">
               Send Message
-              <Send size={16} className="transition-transform group-hover:translate-x-1" />
+              <Send
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </button>
 
             {submitted && (
               <p className="text-primary font-rajdhani font-semibold text-sm text-center animate-fadeIn">
                 Message sent! We'll get back to you shortly.
+              </p>
+            )}
+
+            {successMessage && (
+              <p className="text-green-500 font-semibold text-sm text-center">
+                {successMessage}
+              </p>
+            )}
+
+            {errorMessage && (
+              <p className="text-red-500 font-semibold text-sm text-center">
+                {errorMessage}
               </p>
             )}
           </form>
@@ -280,9 +371,7 @@ export default function Contact() {
 
       {/* FAQ */}
       <section className="relative py-16 sm:py-24  overflow-hidden">
-
         {/* Ambient glow so the section reads as designed, not a flat block */}
-  
 
         {/* Fade to black at the very bottom so the section doesn't cut abruptly
             into whatever plain-black surface (footer / body bg) sits below it */}
