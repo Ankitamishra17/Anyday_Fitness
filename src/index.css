@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @layer utilities {
   .font-teko {
     font-family: 'Teko', sans-serif;

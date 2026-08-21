@@ -16,7 +16,7 @@ export default function MembershipSection() {
 
   return (
     <>
-      <section className="relative py-20 sm:py-28 bg-surface2">
+      <section  id="membership" className="relative py-20 sm:py-28 bg-surface2">
         <div className="container-x flex flex-col items-center">
           <SectionHeading
             eyebrow="Membership"

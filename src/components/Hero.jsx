@@ -40,7 +40,7 @@
 // //             loaded ? "scale-100 opacity-100" : "scale-110 opacity-0"
 // //           }`}
 // //         />
-    
+
 // //       </div>
 
 // //       {/* floating signature badge — echoes the diagonal clip used in the footer */}
@@ -89,14 +89,14 @@
 // //               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
 // //             }`}
 // //           >
-// //             
+// //
 // //               href="#membership"
 // //               className="group inline-flex items-center gap-2 bg-primary hover:opacity-90 text-black font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition"
 // //             >
 // //               Get Started
 // //               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
 // //             </a>
-// //             
+// //
 // //               href="#programs"
 // //               className="inline-flex items-center gap-2 border border-white/25 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
 // //             >
@@ -109,7 +109,7 @@
 // //         <div
 // //           className={`mt-10 transition-opacity duration-700 delay-500 ${loaded ? "opacity-100" : "opacity-0"}`}
 // //         >
-       
+
 // //         </div>
 
 // //         {/* scoreboard stats strip */}
@@ -227,14 +227,14 @@
 //               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
 //             }`}
 //           >
-//             
+//
 //               href="#membership"
 //               className="group inline-flex items-center justify-center gap-2 bg-primary hover:opacity-90 text-black font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition"
 //             >
 //               Get Started
 //               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
 //             </a>
-//             
+//
 //               href="#programs"
 //               className="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
 //             >
@@ -283,9 +283,15 @@
 //   );
 // }
 
-
 import { useState, useEffect } from "react";
-import { Dumbbell, UserCheck, ClipboardList, Clock, ArrowRight } from "lucide-react";
+import {
+  Dumbbell,
+  UserCheck,
+  ClipboardList,
+  Clock,
+  ArrowRight,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const stats = [
   { number: "150+", label: "Expert Trainers" },
@@ -358,16 +364,16 @@ export default function Hero() {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            
-            <a  href="#membership"
+            <a
+              href="#membership"
               className="font-rajdhani font-bold uppercase tracking-wide text-sm text-primary hover:underline"
             >
               Book 1 Day Free Trial
             </a>
             <span className="h-4 w-px bg-black/15" />
-            
-            
-             <a href="https://wa.me/919217688279"
+
+            <a
+              href="https://wa.me/919217688279"
               target="_blank"
               rel="noopener noreferrer"
               className="font-rajdhani font-bold uppercase tracking-wide text-sm text-body hover:text-primary transition-colors"
@@ -381,19 +387,23 @@ export default function Hero() {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            
-            <a  href="#membership"
+            <a
+              href="#membership"
               className="group inline-flex items-center justify-center gap-2 bg-primary hover:opacity-90 text-black font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition"
             >
               Get Started
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </a>
-            
-             <a href="/programs"
+
+            <Link
+              to="/programs"
               className="inline-flex items-center justify-center gap-2 border border-black/15 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
             >
               Explore Programs
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -425,7 +435,11 @@ export default function Hero() {
         >
           {benefits.map((b) => (
             <div key={b.title} className="flex items-center gap-2.5">
-              <b.icon size={18} className="text-primary shrink-0" strokeWidth={2} />
+              <b.icon
+                size={18}
+                className="text-primary shrink-0"
+                strokeWidth={2}
+              />
               <span className="font-rajdhani text-xs sm:text-sm font-semibold text-heading uppercase tracking-wide">
                 {b.title}
               </span>

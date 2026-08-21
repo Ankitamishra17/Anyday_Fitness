@@ -274,6 +274,13 @@ function FaqItem({ q, a, index }) {
   );
 }
 
+/**
+ * FIX: The tab bar now lives inside its own overflow-x-auto wrapper.
+ * On narrow screens (4 tabs won't fit at full padding), THIS strip
+ * scrolls horizontally instead of the whole page. Padding shrinks on
+ * mobile, buttons get whitespace-nowrap so labels never wrap oddly,
+ * and the active tab auto-scrolls into view when selected.
+ */
 function PlanTabs({ memberships, activeTab, setActiveTab }) {
   const containerRef = useRef(null);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
@@ -283,37 +290,50 @@ function PlanTabs({ memberships, activeTab, setActiveTab }) {
     const btn = containerRef.current?.children[idx + 1];
     if (btn) {
       setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
+      btn.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
     }
   }, [activeTab, memberships]);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative inline-flex items-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-10"
-    >
-      <span
-        className="absolute top-1.5 bottom-1.5 rounded-full bg-primary transition-all duration-300 ease-out"
-        style={{ left: indicator.left, width: indicator.width }}
-      />
-      {memberships.map((plan) => (
-        <button
-          key={plan.id}
-          onClick={() => setActiveTab(plan.id)}
-          className={`relative z-10 flex items-center gap-1.5 font-rajdhani font-bold uppercase text-sm tracking-wide px-6 py-2.5 rounded-full transition-colors duration-300 ${
-            activeTab === plan.id
-              ? "text-black"
-              : "text-body hover:text-heading"
-          }`}
-        >
-          {plan.popular && (
-            <Crown
-              size={13}
-              className={activeTab === plan.id ? "text-black" : "text-primary"}
-            />
-          )}
-          {plan.name}
-        </button>
-      ))}
+    <div className="relative w-full sm:w-auto sm:mx-auto mb-10">
+      {/* edge fade masks — mobile only, hidden from sm up */}
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-background to-transparent z-10 sm:hidden" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-background to-transparent z-10 sm:hidden" />
+
+      <div
+        ref={containerRef}
+        className="relative flex flex-nowrap sm:flex-wrap items-center sm:justify-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm overflow-x-auto sm:overflow-visible scroll-smooth snap-x snap-mandatory sm:snap-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] mx-auto max-w-full"
+      >
+        <span
+          className="absolute top-1.5 bottom-1.5 rounded-full bg-primary transition-all duration-300 ease-out"
+          style={{ left: indicator.left, width: indicator.width }}
+        />
+        {memberships.map((plan) => (
+          <button
+            key={plan.id}
+            onClick={() => setActiveTab(plan.id)}
+            className={`relative z-10 shrink-0 snap-start sm:snap-align-none flex items-center gap-1.5 font-rajdhani font-bold uppercase text-xs sm:text-sm tracking-wide px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full whitespace-nowrap transition-colors duration-300 ${
+              activeTab === plan.id
+                ? "text-black"
+                : "text-body hover:text-heading"
+            }`}
+          >
+            {plan.popular && (
+              <Crown
+                size={13}
+                className={
+                  activeTab === plan.id ? "text-black" : "text-primary"
+                }
+              />
+            )}
+            {plan.name}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -345,8 +365,9 @@ export default function Membership() {
         secondaryBtnText="Learn More"
         secondaryBtnLink="/about"
       />
+
       {/* Pricing */}
-      <section className="py-16 sm:py-24">
+      <section className="py-16 sm:py-24 overflow-x-hidden">
         <div className="container-x">
           <SectionHeading
             eyebrow="Pricing"
@@ -355,13 +376,13 @@ export default function Membership() {
             align="center"
             className="mb-16"
           />
-          <div className="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto md:items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto lg:items-center">
             {memberships.map((plan) => (
               <div
                 key={plan.id}
                 className={`transition-all duration-300 ${
                   plan.popular
-                    ? "md:-translate-y-4 md:scale-105 relative z-10"
+                    ? "lg:-translate-y-4 lg:scale-105 relative z-10"
                     : "opacity-90"
                 }`}
               >
@@ -373,7 +394,7 @@ export default function Membership() {
       </section>
 
       {/* Plan explorer — modern segmented control + glass panel */}
-      <section className="py-16 sm:py-24 bg-surface2">
+      <section className="py-16 sm:py-24 bg-surface2 overflow-x-hidden">
         <div className="container-x flex flex-col items-center">
           <SectionHeading
             eyebrow="What's Included"
@@ -389,7 +410,7 @@ export default function Membership() {
           />
 
           <div className="w-full max-w-6xl rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-8 py-7">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 sm:px-8 py-7">
               <div>
                 <h3 className="font-teko text-3xl font-semibold text-heading uppercase leading-none">
                   {activePlan.name} Plan
@@ -408,9 +429,9 @@ export default function Membership() {
               </div>
             </div>
 
-            <div className="h-px bg-white/10 mx-8" />
+            <div className="h-px bg-white/10 mx-6 sm:mx-8" />
 
-            <div className="grid sm:grid-cols-2 gap-x-8 px-8 py-2">
+            <div className="grid sm:grid-cols-2 gap-x-8 px-6 sm:px-8 py-2">
               {comparisonFeatures.map((row) => {
                 const value = row[activeTab];
                 const included = value === true || typeof value === "string";
@@ -450,7 +471,7 @@ export default function Membership() {
       </section>
 
       {/* FAQ — modern flat list, two columns */}
-      <section className="py-16 sm:py-24">
+      <section className="py-16 sm:py-24 overflow-x-hidden">
         <div className="container-x flex flex-col items-center">
           <SectionHeading
             eyebrow="FAQ"

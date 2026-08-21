@@ -902,7 +902,7 @@ export default function Contact() {
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F47B0B] blur-3xl"
               />
-              <div className="relative w-14 h-14 flex items-center justify-center rounded-xl border border-[#F47B0B] bg-white/5 text-[#FF4B26]">
+              <div className="relative w-14 h-14 flex items-center justify-center rounded-xl border border-[#F47B0B] bg-white/5 text-[#F47B0B]">
                 <Mail size={24} strokeWidth={1.75} />
               </div>
               <div className="relative flex flex-col gap-2">
