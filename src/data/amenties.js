@@ -77,7 +77,7 @@ export const amenities = [
 ];
 
 export const equipmentPartners = [
-  { name: "Matrix", logo: "/image/matrix.webp" },
+  { name: "Matrix", logo: "/image/matrix1.webp" },
   { name: "Thor", logo: "/image/thor.webp" },
-  { name: "cult.fit", logo: "/image/cultfit.webp" },
+  { name: "cult.fit", logo: "/image/cultfit1.webp" },
 ];

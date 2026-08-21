@@ -1,3 +1,75 @@
+// import { Check } from "lucide-react";
+
+// export default function PricingCard({ plan, onChoosePlan }) {
+//   const { name, price, period, popular, features } = plan;
+
+//   return (
+//     <div
+//       className={`relative flex flex-col rounded-xl p-6 sm:p-8 transition-all duration-300 ${
+//         popular
+//           ? "bg-surface border-2 border-primary shadow-glow lg:scale-105 z-10"
+//           : "bg-surface border border-white/10 hover:border-white/25"
+//       }`}
+//     >
+//       {popular && (
+//         <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-black font-rajdhani font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
+//           Most Popular
+//         </span>
+//       )}
+
+//       <h3
+//         className={`font-teko text-3xl font-semibold uppercase leading-none ${
+//           popular ? "text-primary" : "text-heading"
+//         }`}
+//       >
+//         {name}
+//       </h3>
+
+//       <div className="flex flex-wrap items-end gap-1.5 mt-5 mb-1">
+//         <span className="font-teko text-4xl sm:text-5xl font-bold text-offwhite leading-none tabular-nums">
+//           {price}
+//         </span>
+
+//         <span className="font-rajdhani text-muted text-sm mb-1">{period}</span>
+//       </div>
+
+//       <div className="h-px bg-white/10 my-6" />
+
+//       <ul className="flex flex-col gap-3.5 mb-8 flex-1">
+//         {features.map((f) => (
+//           <li
+//             key={f}
+//             className="flex items-center gap-3 text-sm text-body font-inter"
+//           >
+//             <span
+//               className={`shrink-0 w-5 h-5 flex items-center justify-center rounded-full ${
+//                 popular ? "bg-primary/20 text-primary" : "bg-white/5 text-muted"
+//               }`}
+//             >
+//               <Check size={12} strokeWidth={3} />
+//             </span>
+
+//             {f}
+//           </li>
+//         ))}
+//       </ul>
+
+//       {/* CLICK → OPEN JOIN NOW MODAL */}
+//       <button
+//         onClick={() => onChoosePlan(plan)}
+//         className={`w-full font-rajdhani font-bold uppercase tracking-wide py-3.5 rounded-md transition-all duration-300 ${
+//           popular
+//             ? "bg-primary text-black hover:bg-primaryDark hover:shadow-glow"
+//             : "bg-transparent border border-white/15 text-offwhite hover:border-primary hover:text-primary"
+//         }`}
+//       >
+//         Choose Plan
+//       </button>
+//     </div>
+//   );
+// }
+
+
 import { Check } from "lucide-react";
 
 export default function PricingCard({ plan, onChoosePlan }) {
@@ -8,7 +80,7 @@ export default function PricingCard({ plan, onChoosePlan }) {
       className={`relative flex flex-col rounded-xl p-6 sm:p-8 transition-all duration-300 ${
         popular
           ? "bg-surface border-2 border-primary shadow-glow lg:scale-105 z-10"
-          : "bg-surface border border-white/10 hover:border-white/25"
+          : "bg-surface border border-black/10 hover:border-black/25"
       }`}
     >
       {popular && (
@@ -33,7 +105,7 @@ export default function PricingCard({ plan, onChoosePlan }) {
         <span className="font-rajdhani text-muted text-sm mb-1">{period}</span>
       </div>
 
-      <div className="h-px bg-white/10 my-6" />
+      <div className="h-px bg-black/10 my-6" />
 
       <ul className="flex flex-col gap-3.5 mb-8 flex-1">
         {features.map((f) => (
@@ -43,7 +115,7 @@ export default function PricingCard({ plan, onChoosePlan }) {
           >
             <span
               className={`shrink-0 w-5 h-5 flex items-center justify-center rounded-full ${
-                popular ? "bg-primary/20 text-primary" : "bg-white/5 text-muted"
+                popular ? "bg-primary/20 text-primary" : "bg-black/5 text-muted"
               }`}
             >
               <Check size={12} strokeWidth={3} />
@@ -60,7 +132,7 @@ export default function PricingCard({ plan, onChoosePlan }) {
         className={`w-full font-rajdhani font-bold uppercase tracking-wide py-3.5 rounded-md transition-all duration-300 ${
           popular
             ? "bg-primary text-black hover:bg-primaryDark hover:shadow-glow"
-            : "bg-transparent border border-white/15 text-offwhite hover:border-primary hover:text-primary"
+            : "bg-transparent border border-black/15 text-offwhite hover:border-primary hover:text-primary"
         }`}
       >
         Choose Plan

@@ -89,14 +89,14 @@
 // //               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
 // //             }`}
 // //           >
-// //             <a
+// //             
 // //               href="#membership"
 // //               className="group inline-flex items-center gap-2 bg-primary hover:opacity-90 text-black font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition"
 // //             >
 // //               Get Started
 // //               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
 // //             </a>
-// //             <a
+// //             
 // //               href="#programs"
 // //               className="inline-flex items-center gap-2 border border-white/25 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
 // //             >
@@ -227,14 +227,14 @@
 //               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
 //             }`}
 //           >
-//             <a
+//             
 //               href="#membership"
 //               className="group inline-flex items-center justify-center gap-2 bg-primary hover:opacity-90 text-black font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition"
 //             >
 //               Get Started
 //               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
 //             </a>
-//             <a
+//             
 //               href="#programs"
 //               className="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
 //             >
@@ -320,7 +320,7 @@ export default function Hero() {
             loaded ? "scale-100 opacity-100" : "scale-110 opacity-0"
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-bg/10" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-bg/10" /> */}
       </div>
 
       {/* content */}
@@ -358,16 +358,16 @@ export default function Hero() {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <a
-              href="#membership"
+            
+            <a  href="#membership"
               className="font-rajdhani font-bold uppercase tracking-wide text-sm text-primary hover:underline"
             >
               Book 1 Day Free Trial
             </a>
-            <span className="h-4 w-px bg-white/20" />
+            <span className="h-4 w-px bg-black/15" />
             
-            <a
-              href="https://wa.me/919217688279"
+            
+             <a href="https://wa.me/919217688279"
               target="_blank"
               rel="noopener noreferrer"
               className="font-rajdhani font-bold uppercase tracking-wide text-sm text-body hover:text-primary transition-colors"
@@ -381,8 +381,8 @@ export default function Hero() {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <a
-              href="#membership"
+            
+            <a  href="#membership"
               className="group inline-flex items-center justify-center gap-2 bg-primary hover:opacity-90 text-black font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition"
             >
               Get Started
@@ -390,7 +390,7 @@ export default function Hero() {
             </a>
             
              <a href="/programs"
-              className="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-black/15 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
             >
               Explore Programs
             </a>
@@ -399,17 +399,17 @@ export default function Hero() {
 
         {/* scoreboard stats strip */}
         <div
-          className={`border-t border-white/10 mt-10 transition-all duration-700 delay-500 ${
+          className={`border-t border-black/10 mt-10 transition-all duration-700 delay-500 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <div className="grid grid-cols-2 xs:grid-cols-4 divide-x divide-y xs:divide-y-0 divide-white/10">
+          <div className="grid grid-cols-2 xs:grid-cols-4 divide-x divide-y xs:divide-y-0 divide-black/10">
             {stats.map((s) => (
               <div key={s.label} className="py-4 sm:py-6 px-3 sm:px-6">
                 <div className="font-teko text-xl sm:text-2xl lg:text-3xl font-bold text-heading tabular-nums">
                   {s.number}
                 </div>
-                <div className="font-rajdhani text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] text-muted mt-1">
+                <div className="font-rajdhani text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] text-heading mt-1">
                   {s.label}
                 </div>
               </div>
@@ -419,14 +419,14 @@ export default function Hero() {
 
         {/* benefits row */}
         <div
-          className={`flex flex-wrap gap-x-6 sm:gap-x-10 gap-y-4 sm:gap-y-5 py-5 sm:py-6 px-1 sm:px-6 border-t border-white/10 transition-opacity duration-700 delay-700 ${
+          className={`flex flex-wrap gap-x-6 sm:gap-x-10 gap-y-4 sm:gap-y-5 py-5 sm:py-6 px-1 sm:px-6 border-t border-black/10 transition-opacity duration-700 delay-700 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
         >
           {benefits.map((b) => (
             <div key={b.title} className="flex items-center gap-2.5">
               <b.icon size={18} className="text-primary shrink-0" strokeWidth={2} />
-              <span className="font-rajdhani text-xs sm:text-sm font-semibold text-body uppercase tracking-wide">
+              <span className="font-rajdhani text-xs sm:text-sm font-semibold text-heading uppercase tracking-wide">
                 {b.title}
               </span>
             </div>

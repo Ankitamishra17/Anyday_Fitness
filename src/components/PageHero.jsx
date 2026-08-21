@@ -20,7 +20,7 @@ export default function PageHero({
             alt=""
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/85 to-bg/50" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/85 to-bg/50" /> */}
         </>
       )}
 

@@ -43,13 +43,7 @@ export default function About() {
         @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
       `}</style>
 
-      {/* Giant watermark numeral — signature element */}
-      {/* <span
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute -top-10 sm:-top-20 right-0 sm:right-10 font-teko font-black text-[240px] sm:text-[400px] leading-none text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.06)]"
-      >
-        10
-      </span> */}
+      
 
       <div className="container-x relative">
         {/* Header row — asymmetric, editorial */}
@@ -136,28 +130,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* Stats scoreboard row */}
-      {/* <div
-        className={`container-x transition-all duration-700 delay-500 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-        }`}
-      >
-        <div className="grid grid-cols-2 sm:grid-cols-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`py-8 px-2 sm:px-6 ${i !== 0 ? "sm:border-l border-white/10" : ""}`}
-            >
-              <div className="font-teko text-4xl sm:text-5xl font-bold text-heading tabular-nums">
-                {s.number}
-              </div>
-              <div className="font-rajdhani text-[11px] uppercase tracking-[0.15em] text-muted mt-1">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
+
     </section>
   );
 }

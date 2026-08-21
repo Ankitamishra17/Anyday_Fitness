@@ -72,7 +72,7 @@ export default function WhyChooseUs() {
         <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
           {/* Image panel */}
           <div className="relative lg:sticky lg:top-28">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 h-72 sm:h-96 lg:h-[720px]">
+            <div className="relative rounded-2xl overflow-hidden border border-white/0 h-72 sm:h-96 lg:h-[720px]">
               <img
                 src="image/image15.webp"
                 alt="Member training at Anyday Fitness"

@@ -20,11 +20,11 @@ export default function ProgramCard({ program }) {
 
       <div className="relative flex flex-col flex-1 justify-end p-6">
   
-        <h3 className="font-teko text-3xl font-semibold text-offwhite uppercase leading-none">
+        <h3 className="font-teko text-3xl font-semibold text-white uppercase leading-none">
           {program.title}
         </h3>
 
-        <p className="font-inter text-sm text-body/90 mt-2.5 mb-4 line-clamp-2">
+        <p className="font-inter text-sm text-white/90 mt-2.5 mb-4 line-clamp-2">
           {program.description}
         </p>
 

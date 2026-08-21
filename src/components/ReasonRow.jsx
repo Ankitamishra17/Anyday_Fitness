@@ -18,8 +18,8 @@ export default function ReasonRow({
 
   return (
     <div
-      className={`group relative flex items-start gap-5 py-6 border-t border-white/10 last:border-b transition-colors duration-300 px-2 -mx-2 rounded-md ${
-        isActive ? "bg-white/[0.02]" : "hover:bg-white/[0.02]"
+      className={`group relative flex items-start gap-5 py-6 border-t border-black/10 last:border-b transition-colors duration-300 px-2 -mx-2 rounded-md ${
+        isActive ? "bg-black/[0.03]" : "hover:bg-black/[0.03]"
       }`}
     >
       {/* accent bar */}
@@ -30,7 +30,7 @@ export default function ReasonRow({
       />
 
       {/* number watermark */}
-      <span className="hidden sm:block font-teko text-5xl font-semibold text-white/5 leading-none select-none shrink-0 w-14">
+      <span className="hidden sm:block font-teko text-5xl font-semibold text-black/10 leading-none select-none shrink-0 w-14">
         {number}
       </span>
 

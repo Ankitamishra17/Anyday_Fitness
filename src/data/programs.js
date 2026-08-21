@@ -20,7 +20,7 @@ export const programs = [
     image: "/image/image11.webp",
     duration: "60 min",
     difficulty: "Intermediate",
-    trainer: "Arjun Sharma",
+    trainer: "Vikrant Tomar",
   },
   {
     id: "weight-loss",
@@ -32,7 +32,7 @@ export const programs = [
     image: "/image/image20.webp",
     duration: "45 min",
     difficulty: "Beginner",
-    trainer: "Meera Kapoor",
+    trainer: "Arjun",
   },
   {
     id: "strength-training",
@@ -44,7 +44,7 @@ export const programs = [
     image: "/image/image10.webp",
     duration: "75 min",
     difficulty: "Advanced",
-    trainer: "Rahul Verma",
+    trainer: "Aman",
   },
   {
     id: "functional-training",
@@ -56,7 +56,7 @@ export const programs = [
     image: "/image/image12.webp",
     duration: "50 min",
     difficulty: "Intermediate",
-    trainer: "Arjun Sharma",
+    trainer: "Arjun ",
   },
   {
     id: "crossfit",
@@ -69,7 +69,7 @@ export const programs = [
       "/image/image27.webp",
     duration: "60 min",
     difficulty: "Advanced",
-    trainer: "Rahul Verma",
+    trainer: "Aman",
   },
   {
     id: "hiit",
@@ -82,7 +82,7 @@ export const programs = [
       "/image/image30.webp",
     duration: "30 min",
     difficulty: "Intermediate",
-    trainer: "Meera Kapoor",
+    trainer: "Himanshu",
   },
   {
     id: "personal-training",
@@ -94,7 +94,7 @@ export const programs = [
     image: "/image/image24.webp",
     duration: "60 min",
     difficulty: "All Levels",
-    trainer: "Arjun Sharma",
+    trainer: "Vikrant Tomar",
   },
   {
     id: "yoga-mobility",
@@ -107,6 +107,6 @@ export const programs = [
       "/image/image32.webp",
     duration: "45 min",
     difficulty: "Beginner",
-    trainer: "Meera Kapoor",
+    trainer: "Monu",
   },
 ];

@@ -12,16 +12,28 @@ export default {
     },
     extend: {
       colors: {
-        bg: "#050505",
-        surface: "#0D0D0D",
-        surface2: "#2e2e2e",
-        primary: "#F47B0B",
-        primaryDark: "#C95F05",
-        secondary: "#0878B9",
-        heading: "#C8C5B8",
-        body: "#D6D6D6",
-        muted: "#85837A",
-        offwhite: "#F5F5F5",
+        // bg: "#050505",
+        // surface: "#0D0D0D",
+        // surface2: "#2e2e2e",
+        // primary: "#F47B0B",
+        // primaryDark: "#C95F05",
+        // secondary: "#0878B9",
+        // heading: "#C8C5B8",
+        // body: "#D6D6D6",
+        // muted: "#85837A", "#767671",
+        // offwhite: "#F5F5F5",
+        bg: "#FAFAF9",
+surface: "#FFFFFF",
+surface2: "#F0F0EF",
+primary: "#F47B0B",
+primaryDark: "#C95F05",
+secondary: "#0878B9",
+heading: "#1A1A1A",
+body: "#3F3F3F",
+muted: "#767671",
+offwhite: "#151515",
+
+        
       },
       fontFamily: {
         teko: ["Teko", "sans-serif"],
@@ -29,7 +41,8 @@ export default {
         inter: ["Inter", "sans-serif"],
       },
       backgroundImage: {
-        "radial-fade": "radial-gradient(circle at center, rgba(244,123,11,0.15) 0%, rgba(5,5,5,0) 70%)",
+        "radial-fade":
+          "radial-gradient(circle at center, rgba(244,123,11,0.15) 0%, rgba(5,5,5,0) 70%)",
       },
       boxShadow: {
         glow: "0 0 30px rgba(244,123,11,0.25)",
