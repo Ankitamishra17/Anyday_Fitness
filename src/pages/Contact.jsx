@@ -129,7 +129,7 @@ export default function Contact() {
 
     try {
       const res = await fetch(
-        "https://anydayfitnessclub.com/send-contact.php",
+        "https://anydayfitness.in/send-contact.php",
         {
           method: "POST",
           headers: {

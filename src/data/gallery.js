@@ -46,7 +46,7 @@ export const galleryImages = [
   {
     id: 10,
     category: "Training",
-    src: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=900&auto=format&fit=crop",
+    src: "/image/image29.webp",
     alt: "HIIT session",
   },
   {

@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
+import JoinNowModal from "./JoinNowModal";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -17,6 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [joinOpen, setJoinOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -64,10 +66,17 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden lg:block">
-            <NavLink to="/membership" className="btn-primary group text-sm !py-2.5">
+            <button
+              type="button"
+              onClick={() => setJoinOpen(true)}
+              className="btn-primary group text-sm !py-2.5"
+            >
               Join Now
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </NavLink>
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </button>
           </div>
 
           <button
@@ -104,7 +113,11 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between">
               <Logo />
-              <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-offwhite -mr-2 p-2">
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+                className="text-offwhite -mr-2 p-2"
+              >
                 <X size={24} />
               </button>
             </div>
@@ -128,17 +141,22 @@ export default function Navbar() {
               ))}
             </ul>
 
-            <NavLink
-              to="/membership"
-              onClick={() => setOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                setJoinOpen(true);
+              }}
               className="btn-primary justify-center mt-auto text-sm"
             >
               Join Now
-            </NavLink>
+            </button>
           </div>
         </div>,
-        document.body
+        document.body,
       )}
+
+      <JoinNowModal open={joinOpen} onClose={() => setJoinOpen(false)} />
     </>
   );
 }
