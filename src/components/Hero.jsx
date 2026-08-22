@@ -294,9 +294,9 @@ import {
 import { Link } from "react-router-dom";
 
 const stats = [
-  { number: "150+", label: "Expert Trainers" },
-  { number: "5,000+", label: "Happy Members" },
-  { number: "50+", label: "Fitness Programs" },
+  { number: "15+", label: "Expert Trainers" },
+  { number: "300+", label: "Happy Members" },
+  { number: "25+", label: "Fitness Programs" },
   { number: "10+", label: "Awards Won" },
 ];
 
@@ -403,7 +403,7 @@ export default function Hero() {
 
             <Link
               to="/programs"
-              className="inline-flex items-center justify-center gap-2 border border-black/15 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-black/25 hover:border-primary hover:text-primary text-heading font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition-colors"
             >
               Explore Programs
             </Link>
