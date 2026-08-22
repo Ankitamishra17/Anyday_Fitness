@@ -207,7 +207,7 @@ export default function Navbar() {
         }`}
       >
         {/* <nav className="container-x flex items-center justify-between"> */}
-        <nav className="container-x h-10 sm:h-12 flex items-center justify-between">
+        <nav className="container-x h-14 sm:h-14 flex items-center justify-between">
           <Logo />
 
           <ul className="hidden lg:flex items-center gap-8">
