@@ -148,7 +148,6 @@
 //   );
 // }
 
-
 import { useMemo, useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "../components/PageHero";
@@ -161,16 +160,25 @@ function CategoryTabs({ categories, active, setActive }) {
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
 
   useEffect(() => {
+    const container = containerRef.current;
     const idx = categories.indexOf(active);
-    const btn = containerRef.current?.children[idx + 1];
-    if (btn) {
-      setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
-      btn.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-    }
+    const btn = container?.children[idx + 1];
+
+    if (!container || !btn) return;
+
+    setIndicator({
+      left: btn.offsetLeft,
+      width: btn.offsetWidth,
+    });
+
+    // Only horizontal tab container scroll
+    const scrollLeft =
+      btn.offsetLeft - container.clientWidth / 2 + btn.offsetWidth / 2;
+
+    container.scrollTo({
+      left: scrollLeft,
+      behavior: "smooth",
+    });
   }, [active, categories]);
 
   return (

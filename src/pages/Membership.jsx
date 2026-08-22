@@ -285,18 +285,44 @@ function PlanTabs({ memberships, activeTab, setActiveTab }) {
   const containerRef = useRef(null);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
 
-  useEffect(() => {
-    const idx = memberships.findIndex((p) => p.id === activeTab);
-    const btn = containerRef.current?.children[idx + 1];
-    if (btn) {
-      setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
-      btn.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-    }
-  }, [activeTab, memberships]);
+  // useEffect(() => {
+  //   const idx = memberships.findIndex((p) => p.id === activeTab);
+  //   const btn = containerRef.current?.children[idx + 1];
+  //   if (btn) {
+  //     setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
+  //     btn.scrollIntoView({
+  //       behavior: "smooth",
+  //       inline: "center",
+  //       block: "nearest",
+  //     });
+  //   }
+  // }, [activeTab, memberships]);
+
+
+useEffect(() => {
+  const container = containerRef.current;
+  const idx = memberships.findIndex((p) => p.id === activeTab);
+  const btn = container?.children[idx + 1];
+
+  if (container && btn) {
+    setIndicator({
+      left: btn.offsetLeft,
+      width: btn.offsetWidth,
+    });
+
+    // Sirf tabs container horizontally scroll hoga,
+    // poora page vertically scroll nahi hoga
+    const scrollLeft =
+      btn.offsetLeft -
+      container.clientWidth / 2 +
+      btn.offsetWidth / 2;
+
+    container.scrollTo({
+      left: scrollLeft,
+      behavior: "smooth",
+    });
+  }
+}, [activeTab, memberships]);
 
   return (
     <div className="relative w-full sm:w-auto sm:mx-auto mb-10">
