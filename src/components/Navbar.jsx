@@ -206,7 +206,8 @@ export default function Navbar() {
             : "bg-white/80 backdrop-blur-sm py-3 sm:py-4"
         }`}
       >
-        <nav className="container-x flex items-center justify-between">
+        {/* <nav className="container-x flex items-center justify-between"> */}
+        <nav className="container-x h-10 sm:h-12 flex items-center justify-between">
           <Logo />
 
           <ul className="hidden lg:flex items-center gap-8">

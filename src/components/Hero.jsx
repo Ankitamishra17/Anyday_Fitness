@@ -326,6 +326,9 @@ export default function Hero() {
             loaded ? "scale-100 opacity-100" : "scale-110 opacity-0"
           }`}
         />
+         {/* gradient show only mobile view */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white to-transparent sm:hidden" />
+        
         {/* <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-bg/10" /> */}
       </div>
 
@@ -419,7 +422,7 @@ export default function Hero() {
                 <div className="font-teko text-xl sm:text-2xl lg:text-3xl font-bold text-heading tabular-nums">
                   {s.number}
                 </div>
-                <div className="font-rajdhani text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] text-heading mt-1">
+                <div className="font-rajdhani text-[12px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] text-heading mt-1">
                   {s.label}
                 </div>
               </div>
