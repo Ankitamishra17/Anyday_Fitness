@@ -483,7 +483,7 @@ export default function Contact() {
 
               <div className="relative flex flex-col gap-3 pt-2 border-t border-white/10">
                 <a
-                  href="tel:07042450015"
+                  href="tel:+919217688279"
                   className="flex items-center gap-3 font-rajdhani font-semibold text-sm text-white hover:text-[#F47B0B] transition-colors duration-300"
                 >
                   <Phone size={16} className="text-[#F47B0B] shrink-0" />
