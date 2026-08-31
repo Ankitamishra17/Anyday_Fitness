@@ -8,7 +8,7 @@ export default function Logo({ light = false }) {
         <img
           src="/logo2.png"
           alt="logo"
-          className="h-18 w-[125px] xs:h-20 xs:w-51 sm:h-23 sm:w-48 lg:h-34 lg:w-[145px] md:h-20 md:w-[120px]  object-center object-cover"
+          className="h-18 w-[125px] xs:h-20 xs:w-51 sm:h-23 sm:w-48 lg:h-34 lg:w-[130px] md:h-20 md:w-[120px]  object-center object-cover"
         />
       </div>
     </Link>

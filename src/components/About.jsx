@@ -15,7 +15,13 @@ const stats = [
   { number: "Upto 50%", label: "Launch Offer" },
 ];
 
-const marqueeWords = ["STRENGTH", "DISCIPLINE", "ANYDAY", "ANYTIME", "NO LIMITS"];
+const marqueeWords = [
+  "STRENGTH",
+  "DISCIPLINE",
+  "ANYDAY",
+  "ANYTIME",
+  "NO LIMITS",
+];
 
 export default function About() {
   const [visible, setVisible] = useState(false);
@@ -29,21 +35,22 @@ export default function About() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={ref} className="relative bg-surface2 overflow-hidden pt-20 sm:pt-32">
+    <section
+      ref={ref}
+      className="relative bg-surface2 overflow-hidden pt-20 sm:pt-32"
+    >
       <style>{`
         @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .marquee-track { animation: marquee 22s linear infinite; }
         @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
       `}</style>
-
-      
 
       <div className="container-x relative">
         {/* Header row — asymmetric, editorial */}
@@ -63,12 +70,26 @@ export default function About() {
             </h2>
           </div>
 
-          <p className="font-inter text-body max-w-md lg:pb-2">
-            Anyday Fitness isn't just a gym — it's a community built around
-            discipline, strength, and consistency. Every corner of our
-            facility is designed to help you become the strongest version of
-            yourself, anyday, anytime.
-          </p>
+
+          <div className="max-w-md sm:-translate-y-4">
+            <p className="font-inter text-body">
+              Anyday Fitness isn't just a gym — it's a community built around
+              discipline, strength, and consistency. Every corner of our
+              facility is designed to help you become the strongest version of
+              yourself, anyday, anytime.
+            </p>
+
+            {/* Founder — tablet & desktop only */}
+            <div className=" mt-5 border-l-2 border-primary pl-4">
+              <p className="font-teko text-2xl font-semibold uppercase text-heading leading-none">
+                Akash Yadav
+              </p>
+
+              <p className="font-inter text-xs uppercase tracking-[0.2em] text-primary mt-1">
+                Co-Founder & Director
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Image + feature panel */}
@@ -95,8 +116,13 @@ export default function About() {
             <ul className="flex flex-col gap-4">
               {features.map((f) => (
                 <li key={f} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-primary shrink-0 mt-0.5" />
-                  <span className="font-inter text-sm sm:text-base text-body">{f}</span>
+                  <CheckCircle2
+                    size={20}
+                    className="text-primary shrink-0 mt-0.5"
+                  />
+                  <span className="font-inter text-sm sm:text-base text-body">
+                    {f}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -105,7 +131,10 @@ export default function About() {
               className="group inline-flex w-fit items-center gap-2 bg-primary hover:opacity-90 text-black font-rajdhani font-bold uppercase text-sm tracking-wide px-7 py-4 rounded-sm transition mt-2"
             >
               Join The Movement
-              <Dumbbell size={16} className="transition-transform group-hover:rotate-12" />
+              <Dumbbell
+                size={16}
+                className="transition-transform group-hover:rotate-12"
+              />
             </a>
           </div>
         </div>
@@ -129,8 +158,6 @@ export default function About() {
           ))}
         </div>
       </div>
-
-
     </section>
   );
 }
