@@ -79,16 +79,7 @@ export default function About() {
               yourself, anyday, anytime.
             </p>
 
-            {/* Founder — tablet & desktop only */}
-            {/* <div className=" mt-5 border-l-2 border-primary pl-4">
-              <p className="font-teko text-2xl font-semibold uppercase text-heading leading-none">
-                Akash Yadav
-              </p>
-
-              <p className="font-inter text-xs uppercase tracking-[0.2em] text-primary mt-1">
-                Co-Founder & Director
-              </p>
-            </div> */}
+           
           </div>
         </div>
 

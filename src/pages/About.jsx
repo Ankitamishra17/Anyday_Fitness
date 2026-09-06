@@ -29,7 +29,7 @@ const founders = [
   { name: "Luxmi Kant Sharma", role: "Founder" },
   { name: "Vivek Kumar", role: "Founder" },
   { name: "Sameer", role: "Founder" },
-  { name: "Akash Yadav", role: "Co-Founder & Director" },
+  // { name: "Akash Yadav", role: "Co-Founder & Director" },
 ];
 
 const facilities = [
